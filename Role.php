@@ -26,6 +26,8 @@ class Role
 
 	// FIN SETTERS & GETTERS --------------
 
+	// METHODES ---------------------------
+
 	public function __toString()
 	{
 		return $this->getPersonnage();
@@ -39,6 +41,7 @@ class Role
 	public function afficherActeur()
 	{
 		$result = "<h3>Liste des acteurs ayant jouer le rôle " . $this->personnage . " : </h3>";
+		$castings = $this->getCastings();
 		foreach ($this->castings as $casting) {
 			$result .= $casting->getActeur() . "</br>";
 		}

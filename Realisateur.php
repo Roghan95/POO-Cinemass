@@ -8,12 +8,9 @@ class Realisateur extends Personne
 	public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance)
 	{
 		parent::__construct($nom, $prenom, $sexe, $dateNaissance);
+		$this->films = [];
 	}
 
-	public function ajouterFilm(Film $film)
-	{
-		$this->films[] = $film;
-	}
 
 	public function setFilms(array $films)
 	{
@@ -23,6 +20,12 @@ class Realisateur extends Personne
 	public function getFilms(): array
 	{
 		return $this->films;
+	}
+
+	// Ajoute un film à la filmographie du réalisateur
+	public function ajouterFilm(Film $film)
+	{
+		$this->films[] = $film;
 	}
 
 	// Affiche la filmographie du réalisateur

@@ -23,7 +23,7 @@ $film1 = new Film("Star Wars Episode IV", "2000-01-01", 120, $realisateur1, $gen
 
 
 $casting1 = new Casting($acteur1, $film1, $role1);
-$casting2 = new Casting($acteur1, $film1, $role1);
+$casting2 = new Casting($acteur2, $film2, $role2);
 
 
 echo $role1->afficherActeur();

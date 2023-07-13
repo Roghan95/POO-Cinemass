@@ -10,6 +10,9 @@ class Film
     private array $castings = [];
     private string $synopsis;
 
+
+    // CONSTRUCTEUR ------------------------------------------
+
     public function __construct(string $titre, string $dateSortieFr, int $duree, Realisateur $realisateur, Genre $genre, string $synopsis = "")
     {
         $this->titre = $titre;
@@ -19,7 +22,7 @@ class Film
         $this->genre = $genre;
         $this->synopsis = $synopsis;
         $realisateur->ajouterFilm($this);
-        //$genre->ajouterFilm($this);
+        $genre->ajouterFilm($this);
     }
 
     // GETTERS ------------------------------------------
@@ -70,11 +73,37 @@ class Film
     {
         $this->realisateur = $realisateur;
     }
+    // FIN GETTERS ET SETTERS ------------------------------------------
 
-    //-----
+    // ---------------------------------------------------------------
 
-    public function ajouterCasting($casting)
+    // METHODES ------------------------------------------
+
+    // METHODE __toString ------------------------------------------
+    public function __toString()
+    {
+        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
+        return $this->titre . " - " . $formatter->format($this->dateSortieFr) . " - " . $this->duree . " minutes - " . $this->realisateur;
+    }
+
+    // Ajoute un casting au film
+
+    public function ajouterCasting(Casting $casting)
     {
         $this->castings[] = $casting;
     }
+
+
+    // Affiche la liste des acteurs ayant jouer dans le film
+    public function afficherActeur()
+    {
+        $result = "<h3>Liste des acteurs ayant jouer dans le film " . $this->titre . " : </h3>";
+        $castings = $this->getCastings();
+        foreach ($this->castings as $casting) {
+            $result .= $casting->getActeur() . "</br>";
+        }
+        return $result;
+    }
+
+
 }
