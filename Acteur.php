@@ -2,7 +2,7 @@
 
 class Acteur extends Personne
 {
-	private array $castings = [];
+	private array $castings;
 
 	// CONSTRUCTEUR ------------------------------------------
 
@@ -24,35 +24,17 @@ class Acteur extends Personne
 		$this->castings = $castings;
 	}
 
-	// METHODE toString() -------------------------------------
-	public function __toString()
-	{
-		$formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
-		return $this->nom . " " . $this->prenom . " - " . $this->sexe . " - né le : " . $formatter->format($this->dateNaissance);
-	}
-
 	// METHODES ------------------------------------------
 
-	public function ajouterCasting($casting)
+	public function ajouterCasting(Casting $casting)
 	{
 		$this->castings[] = $casting;
 	}
 
-
-	// public function getFilms()
-	// {
-	// 	$films = [];
-	// 	foreach ($this->castings as $casting) {
-	// 		$films[] = $casting->getFilm();
-	// 	}
-	// 	return $films;
-	// }
-
-
 	// affiche la filmographie de l'acteur
-	public function getFilms()
+	public function afficherFilms()
 	{
-		$resultat = "FILMOGRAPHIE : <br>";
+		$resultat = "<h3>FILMOGRAPHIE : <br></h3>";
 		$castings = $this->getCastings();
 		foreach ($this->castings as $casting) {
 			$resultat .= ($casting->getFilm())->getTitre() . "<br>";

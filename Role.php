@@ -17,6 +17,11 @@ class Role
 		return $this->personnage;
 	}
 
+	public function getCastings(): array
+	{
+		return $this->castings;
+	}
+
 	// SETTERS -----------------------
 
 	public function setPersonnage($personnage)
@@ -38,9 +43,9 @@ class Role
 		$this->castings[] = $casting;
 	}
 
-	public function afficherActeur()
+	public function afficherFilmographie()
 	{
-		$result = "<h3>Liste des acteurs ayant jouer le rôle " . $this->personnage . " : </h3>";
+		$result = "<h3>Liste des acteurs ayant jouer le rôle  : <br></h3>";
 		$castings = $this->getCastings();
 		foreach ($this->castings as $casting) {
 			$result .= $casting->getActeur() . "</br>";

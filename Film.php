@@ -75,11 +75,9 @@ class Film
     }
     // FIN GETTERS ET SETTERS ------------------------------------------
 
-    // ---------------------------------------------------------------
-
     // METHODES ------------------------------------------
 
-    // METHODE __toString ------------------------------------------
+    // Méthode __toString 
     public function __toString()
     {
         $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
@@ -97,7 +95,7 @@ class Film
     // Affiche la liste des acteurs ayant jouer dans le film
     public function afficherActeur()
     {
-        $result = "<h3>Liste des acteurs ayant jouer dans le film " . $this->titre . " : </h3>";
+        $result = "<h3>Liste des acteurs ayant jouer dans le film : <br></h3>";
         $castings = $this->getCastings();
         foreach ($this->castings as $casting) {
             $result .= $casting->getActeur() . "</br>";

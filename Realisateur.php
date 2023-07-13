@@ -32,9 +32,9 @@ class Realisateur extends Personne
 
 	public function affichierFilms()
 	{
-		$result = "Filmographie du réalisateur : <br>";
+		$result = "<h3>Filmographie du réalisateur : <br></h3>";
 		$films = $this->getFilms();
-		foreach ($this->films as $film) {
+		foreach ($films as $film) {
 			$result .= $film->getTitre() . "<br>";
 		}
 		return $result;

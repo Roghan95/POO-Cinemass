@@ -45,7 +45,7 @@ class Genre
 
 	public function afficherFilm()
 	{
-		$result = "Film du genre " . $this->nom . " : <br>";
+		$result = "<h3>Film du genre  : <br></h3>";
 		$films = $this->getFilms();
 		foreach ($films as $film) {
 			$result .= $film->getTitre() . "<br>";

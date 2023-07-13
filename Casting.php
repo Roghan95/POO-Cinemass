@@ -7,7 +7,7 @@ class Casting
 	private Role $role;
 
 	// CONSTRUCTEUR -----------------------
-	public function __construct($acteur, $film, $role)
+	public function __construct(Acteur $acteur, Film $film, Role $role)
 	{
 		$this->acteur = $acteur;
 		$this->film = $film;
@@ -53,6 +53,6 @@ class Casting
 	// METHODES ---------------------------
 	public function __toString()
 	{
-		return $this->acteur . " - " . $this->film . " - " . $this->role;
+		return $this->getActeur() . " " . $this->getRole() . " " . $this->getFilm();
 	}
 }

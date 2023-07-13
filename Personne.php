@@ -67,7 +67,7 @@ class Personne
 	public function __toString()
 	{
 		$formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
-		return $this->nom . " " . $this->prenom . " - " . $this->sexe . " - né le : " . $formatter->format($this->dateNaissance);
+		return $this->nom . " " . $this->prenom . " - " . $this->sexe . " " . $formatter->format($this->dateNaissance);
 	}
 
 }
